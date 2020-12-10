@@ -1,0 +1,98 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.melrose1994.wechatstep"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        def actionValue = applicationId+".remote"
+
+        manifestPlaceholders = [xposedDescription:rootProject.ext.xposedDescription,action:actionValue]
+        buildConfigField("String", "ACTION", "\"${actionValue}\"")
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias "key0"
+            keyPassword "melrose1994"
+            storeFile file("../keystore.jks")
+            storePassword "melrose1994"
+        }
+
+        debug {
+            keyAlias "key0"
+            keyPassword "melrose1994"
+            storeFile file("../keystore.jks")
+            storePassword "melrose1994"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "IS_DEBUG_MODE", "${isDebugMode}")
+            resValue("string", "app_name", rootProject.ext.app_name)
+            buildConfigField("String", "TAG", "\"${rootProject.ext.tag}\"")
+        }
+
+        debug {
+            applicationIdSuffix ".debug" // This changes the packageName returned from a Context
+            versionNameSuffix "-DEBUG"
+            buildConfigField("boolean", "IS_DEBUG_MODE", "${isDebugMode}")
+            buildConfigField("String", "TAG", "\"${rootProject.ext.tag}\"")
+            resValue("string", "app_name", rootProject.ext.app_name)
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+            main {
+                assets.srcDirs = ['assets']
+                java.srcDirs = ['src/main/kotlin']
+            }
+
+        }
+
+    android.applicationVariants.all { variant ->
+        if (variant.buildType.name == "release") {
+            println("start change release apk output directory ;")
+            variant.getPackageApplicationProvider().get().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+        }
+
+        variant.outputs.all{
+            outputFileName = "${rootProject.ext.app_name}-${rootProject.ext.versionName}.apk"
+        }
+
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.librarys["Kotlin"]
+    compileOnly rootProject.ext.librarys["Xposed"]
+    compileOnly rootProject.ext.librarys["XposedSource"]
+    implementation rootProject.ext.librarys["Android-AppCompat"]
+    implementation rootProject.ext.librarys["Android-Ktx"]
+    implementation rootProject.ext.librarys["Splitties-Dsl"]
+    implementation rootProject.ext.librarys["Splitties-Base"]
+    implementation rootProject.ext.librarys["Splitties-RecycleView"]
+    implementation rootProject.ext.librarys["SwipeRefreshLayout"]
+    implementation rootProject.ext.librarys["Splitties-Material"]
+    //debugImplementation rootProject.ext.librarys["Leakcanary"]
+    debugImplementation rootProject.ext.librarys["Splitties-Dsl-Preview"]
+}

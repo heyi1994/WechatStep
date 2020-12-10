@@ -1,0 +1,84 @@
+//AndroidX相关库查看 https://maven.google.com/web/index.html
+ext{
+
+    compileSdkVersion = 30
+    buildToolsVersion = "30.0.2"
+    minSdkVersion = 23
+    targetSdkVersion = 30
+
+    app_name= "微信运动修改器"
+
+    //version
+    versionCode = 1
+    versionName = "1.0.01"
+
+    roomVersion = "2.3.0-alpha01"
+
+
+    isDebugMode = true
+
+    xposedDescription = "微信运动步数修改器!"
+
+    //日志tag
+    tag = "Melrose"
+
+
+
+    librarys = [
+            //日志
+            "Logger":"com.orhanobut:logger:2.2.0",
+            //splitties 基础库
+            "Splitties-Base":"com.louiscad.splitties:splitties-fun-pack-android-base:$splitties_version",
+
+            "Splitties-Dsl":"com.louiscad.splitties:splitties-views-dsl:$splitties_version",
+            //splitties dsl -预览库
+            "Splitties-Dsl-Preview":"com.louiscad.splitties:splitties-views-dsl-ide-preview:$splitties_version",
+
+            "Splitties-RecycleView":"com.louiscad.splitties:splitties-views-dsl-recyclerview:$splitties_version",
+
+            "Splitties-Material":"com.louiscad.splitties:splitties-views-dsl-material:$splitties_version",
+
+            "Android-Ktx":"androidx.core:core-ktx:1.3.2",
+
+            "Android-AppCompat":"androidx.appcompat:appcompat:1.2.0",
+
+            "Kotlin":"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+
+
+            "Android-Multidex":"androidx.multidex:multidex:2.0.1",
+            //implementation ''
+            "SwipeRefreshLayout":"androidx.swiperefreshlayout:swiperefreshlayout:1.1.0",
+
+
+            //
+            "RxJava":"io.reactivex.rxjava2:rxjava:2.2.20",
+            "RxAndroid":"io.reactivex.rxjava2:rxandroid:2.1.1",
+            "RxPermissions":"com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar",
+
+
+            //debugImplementation ''
+            "Leakcanary":"com.squareup.leakcanary:leakcanary-android:2.5",
+            //room
+            "Room-Runtime":"androidx.room:room-runtime:$roomVersion",
+            "Room-Compiler":"androidx.room:room-compiler:$roomVersion",
+            "Room-Rxjava2":"androidx.room:room-rxjava2:$roomVersion",
+
+            "Tickseekbar":"com.github.warkiz.tickseekbar:tickseekbar:0.1.4",
+
+            //    implementation 'com.larswerkman:HoloColorPicker:1.5'
+            "HoloColorPicker":"com.larswerkman:HoloColorPicker:1.5",
+            "Material":"com.google.android.material:material:1.2.1",
+
+            "Xposed":"de.robv.android.xposed:api:82",
+            "XposedSource":"de.robv.android.xposed:api:82:sources",
+
+            //implementation ''
+            // compileOnly 'de.robv.android.xposed:api:82'
+            //compileOnly 'de.robv.android.xposed:api:82:sources'
+
+            "retrofit"                          : "com.squareup.retrofit2:retrofit:2.3.0",
+            "converter-gson"                    : "com.squareup.retrofit2:converter-gson:2.3.0",
+            "adapter-rxjava"                    : "com.squareup.retrofit2:adapter-rxjava2:2.3.0",
+            "loggin-interceptor"                : 'com.squareup.okhttp3:logging-interceptor:3.12.1',
+    ]
+}

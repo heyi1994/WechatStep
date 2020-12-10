@@ -1,0 +1,12 @@
+<resources>
+  <string name="tips_enable">微信计步修改器已打开！</string>
+  <string name="tips_disable">微信计步修改器已关闭！</string>
+
+
+  <string name="config_switch">是否开启计步修改功能：</string>
+  <string name="config_step">设置增加倍数：</string>
+
+  <string name="tips_use">1、怎么使用?\n&#160;&#160;&#160;&#160;按照后在EdXposedManager中勾选该模块，然后重启。打开修改功能，然后打开微信，进入微信运动。在进入排行榜，返回，再进入，就可发现步数倍数增长。\n
+    2、为什么不起作用？\n&#160;&#160;&#160;&#160;请确保你已按照了Xposed框架且可正常使用。
+  </string>
+</resources>
