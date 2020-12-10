@@ -3,7 +3,7 @@
 
 ## 怎么使用?
 
-   按照后在[EdXposedManager](https://github.com/ElderDrivers/EdXposedManager)中勾选该模块，然后重启。打开修改功能，然后打开微信，进入微信运动。在进入排行榜，返回，再进入，就可发现步数倍数增长。
+   首先在[EdXposedManager](https://github.com/ElderDrivers/EdXposedManager)中勾选该模块，然后重启。打开修改功能，然后打开微信，进入微信运动。在进入排行榜，返回，再进入，就可发现步数倍数增长。
    
 ## 为什么不起作用？
 
